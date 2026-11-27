@@ -18,6 +18,11 @@ export class InventoryPage {
     await this.page.getByTestId(`add-to-cart-${slug}`).click();
   }
 
+async removeFromCart(productName) {
+    const slug = productName.replace(/\s+/g, '-').toLowerCase();
+    await this.page.getByTestId(`remove-${slug}`).click();
+  }
+
   async sortBy(value) {
     await this.sortSelect.selectOption(value); // az | za | lohi | hilo
   }
